@@ -1,0 +1,6 @@
+path: 'reports/rubycritic'
+coverage_path: 'reports/simplecov'
+no_browser: true
+formats:
+  - console
+  - html
