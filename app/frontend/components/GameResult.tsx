@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCrown} from "@fortawesome/free-solid-svg-icons";
 import {GameResult as Result} from "types/game-result";
-import {Player} from "../types/player";
+import {Player} from "types/player";
 
 interface GameResultProps {
     result?: Result

@@ -7,14 +7,18 @@
 }
 .game-result{
   @include robot-font;
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   border-radius: 10px;
+  max-height: calc(100vh - 400px);;
+  overflow-y: scroll;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
-  overflow: hidden;
 
   &__header{
+    position: sticky;
+    top:0;
     display: flex;
     justify-content: center;
     align-items: center;

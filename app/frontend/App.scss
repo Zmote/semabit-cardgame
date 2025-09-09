@@ -9,6 +9,8 @@ $bootstrap-settings: (
 
 * {
   box-sizing: border-box;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 #root{

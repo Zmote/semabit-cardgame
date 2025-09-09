@@ -83,3 +83,12 @@ You can automatically update "schema" changes on corresponding model files via t
 ```
 annotate --models
 ```
+
+## TODOs
+
+- [ ] Add React Redux for State Management
+- [ ] Make Docker Container definition deployable / runnable
+- [ ] Auto-Deploy main to Cloud
+- [ ] Implement Multiplayer (with Websockets?)
+- [ ] Restructure models / controllers etc. for multiple game support
+  - [ ] i.e. use Modules and remove prefixes where possible, like CardGame, could be Card::Game

@@ -4,7 +4,8 @@ import {GameResult as Result} from 'types/game-result'
 import {ChangeEvent, MouseEvent, useCallback, useMemo, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFile, faPerson} from "@fortawesome/free-solid-svg-icons";
-import {GameConfig} from "../../types/game-config";
+import {GameConfig} from "types/game-config";
+import {GameCardService} from "services/game-card";
 
 const HomeIndex = () => {
     const csrfToken = useMemo<string>(() => {
@@ -32,18 +33,10 @@ const HomeIndex = () => {
         })
     }, [gameConfig])
 
-    const playGameHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+    const simulateGameHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setLoading(true);
-        fetch('/api/v1/games/card_game', {
-            method: 'POST',
-            headers: {
-                'X-CSRF-Token': csrfToken,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: JSON.stringify(gameConfig)
-        }).then(res => res.json())
+        GameCardService.simulateGame(gameConfig, csrfToken)
             .then((result: Result) => {
                 setGameResult(result);
             }).catch((err: Error) => {
@@ -96,7 +89,8 @@ const HomeIndex = () => {
                             </Row>
                             <Row>
                                 <Col className={"d-grid"}>
-                                    <Button onClick={playGameHandler} variant={"primary"}>
+                                    <Button onClick={simulateGameHandler}
+                                            variant={"primary"}>
                                         Play {loading ? <Spinner size={"sm"}></Spinner> : null}
                                     </Button>
                                 </Col>
