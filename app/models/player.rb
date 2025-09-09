@@ -26,7 +26,6 @@ class Player
   end
 
   def cards_remaining
-    # TODO: Optimize with a counter
     @cards.reject { |card| card.open? }.length
   end
 end

@@ -1,13 +1,14 @@
 class CardGameController < ApplicationController
   def create
-    players = [
-      Player.new("Carol"),
-      Player.new("Alice"),
-      Player.new("Bob"),
-      Player.new("Mario")
-    ]
-    card_game = CardGame.new(players)
+    game_config = card_game_items
+    card_game = CardGame.from(game_config)
     @game_result = card_game.play
     render :show, status: :created
+  end
+
+  private
+
+  def card_game_items
+    params.require(:card_game).permit(:card_count, :player_count)
   end
 end

@@ -62,3 +62,4 @@ end
 
 gem "rubycritic", require: false
 gem "vite_rails", "~> 3.0"
+gem "faker", "~> 3.5", ">= 3.5.2", require: false
