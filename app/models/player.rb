@@ -1,9 +1,32 @@
 # frozen_string_literal: true
 
 class Player
-  attr_reader :id, :name, :rank, :cards_remaining
+  attr_reader :name
 
-  def initialize(id, name, rank, cards_remaining)
-    @id, @name, @rank, @cards_remaining = id, name, rank, cards_remaining
+  def initialize(name)
+    @name  = name
+    @cards = []
+  end
+
+  def play(die_color)
+    @cards.reject(&:open?).each do |card|
+      if card.color?(die_color)
+        card.flip
+        return
+      end
+    end
+  end
+
+  def take(card)
+    @cards << card
+  end
+
+  def reset
+    @cards = []
+  end
+
+  def cards_remaining
+    # TODO: Optimize with a counter
+    @cards.reject { |card| card.open? }.length
   end
 end

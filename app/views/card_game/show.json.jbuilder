@@ -1,2 +1,2 @@
 # Dummy data
-json.partial! "card_game/card_game", card_game: @card_game
+json.partial! "card_game/game_result", game_result: @game_result

@@ -16,10 +16,10 @@ const GameResult = (props: GameResultProps) => {
                     className={"ms-2"}>Nach {props.result.rounds} Spielrunden</span>
                 </div>
                 <ul className={'game-result__list'}>
-                    {props.result.players.map((player: Player) => (
+                    {props.result.players.map((player: Player, index: number) => (
                         <li className={'game-result__list-item'} key={player.id}>
-                            {player.rank}. {player.name} {player.cards_remaining > 0 ?
-                            <span className={"float-end"}>{player.cards_remaining}</span> : null}
+                            {index + 1}. {player.name} {player.cards_remaining > 0 ?
+                            <span className={"float-end"}>{player.cards_remaining} von {props.result?.card_count}</span> : null}
                         </li>
                     ))}
                 </ul>

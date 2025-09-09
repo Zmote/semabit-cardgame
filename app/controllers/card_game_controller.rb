@@ -1,12 +1,13 @@
 class CardGameController < ApplicationController
   def create
     players = [
-      Player.new(1, "Carol", 1, 0),
-      Player.new(2, "Alice", 2, 2),
-      Player.new(3, "Bob", 3, 3),
-      Player.new(4, "Mario", 4, 3)
+      Player.new("Carol"),
+      Player.new("Alice"),
+      Player.new("Bob"),
+      Player.new("Mario")
     ]
-    @card_game = CardGame.new(4, players.sort_by {|player| player.rank })
+    card_game = CardGame.new(players, card_count: 10)
+    @game_result = card_game.play
     render :show, status: :created
   end
 end
