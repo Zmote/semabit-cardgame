@@ -92,3 +92,4 @@ annotate --models
 - [ ] Implement Multiplayer (with Websockets?)
 - [ ] Restructure models / controllers etc. for multiple game support
   - [ ] i.e. use Modules and remove prefixes where possible, like CardGame, could be Card::Game
+- [ ] Add i18n support
