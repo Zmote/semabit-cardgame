@@ -20,6 +20,7 @@ export default defineConfig({
             types: resolve(__dirname, 'app/frontend/types'),
             services: resolve(__dirname, 'app/frontend/services'),
             tests: resolve(__dirname, 'app/frontend/tests'),
+            styles: resolve(__dirname, 'app/frontend/styles'),
         },
     },
     css: {

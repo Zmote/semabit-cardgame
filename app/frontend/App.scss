@@ -1,7 +1,22 @@
 @use 'sass:meta' as meta; // add this
+@use 'styles/components';
 
 $bootstrap-settings: (
         //navbar-light-brand-color: red
 );
 
 @include meta.load-css('bootstrap', $with: $bootstrap-settings);
+
+* {
+  box-sizing: border-box;
+}
+
+#root{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

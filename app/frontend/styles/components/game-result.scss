@@ -1,0 +1,49 @@
+@mixin robot-font{
+  font-family: "Roboto Light", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+          "wdth" 400;
+}
+.game-result{
+  @include robot-font;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+
+  &__header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-basis: 60px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    font-size: 20px;
+    background-color: #414141;
+    color: white;
+  }
+
+  &__list{
+    flex-grow: 1;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #ff730d;
+    &-item{
+      font-size: 1rem;
+      flex-grow: 1;
+      padding: 16px;
+      width: 100%;
+      color: white;
+      border-top: 1px solid #414141;
+    }
+  }
+}

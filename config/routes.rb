@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :v1 do
-        end
+      scope :games do
+        resources :card_game, only: :create
+      end
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
