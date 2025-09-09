@@ -22,6 +22,6 @@ class CardColor
   private
 
   def colors
-    @colors ||= [RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW].freeze
+    @colors ||= [ RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW ].freeze
   end
 end
