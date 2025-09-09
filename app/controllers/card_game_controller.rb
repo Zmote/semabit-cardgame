@@ -6,7 +6,7 @@ class CardGameController < ApplicationController
       Player.new("Bob"),
       Player.new("Mario")
     ]
-    card_game = CardGame.new(players, card_count: 10)
+    card_game = CardGame.new(players)
     @game_result = card_game.play
     render :show, status: :created
   end
