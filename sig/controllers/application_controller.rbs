@@ -1,5 +1,5 @@
 class ApplicationController
   private
 
-  def filter_params: (String key) -> untyped
+  def filter_params: (String key) -> ActionController::Parameters
 end

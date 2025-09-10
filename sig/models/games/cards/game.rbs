@@ -14,7 +14,7 @@ module Games
       MIN_PLAYERS: Integer
       MAX_PLAYERS: Integer
 
-      type game_config = {?player_count: Integer, ?card_count: Integer }
+      type game_config = {?player_count: ::Integer, ?card_count: ::Integer } | ActionController::Parameters
       def self.from: (game_config config) -> Game
 
       def initialize: (?player_count: ::Integer, ?card_count: ::Integer) -> Game

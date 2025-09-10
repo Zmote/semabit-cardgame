@@ -31,6 +31,10 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
         * Note: The parser for rbs currently only supports up to 3.3, therefore
           a lot of rails rbs currently don't work properly, adjust as the rbs parsing
           better supports 3.4 version of ruby
+        * Note: When working with JetBrains IDEs, make sure the rails rbs types folder
+          usually .gem_rbs_collection, isn't excluded from analysis, when you decide to
+          add .gem_rbs_collection to .gitignore, as the folder might be suggested for exclusion
+          and you might accidentally say yes
     * You can provide database user and password via env or .env - File:
       ```
       DB_USER=<user>

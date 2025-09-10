@@ -6,6 +6,6 @@ module Games
 
     private
 
-    def card_game_items: () -> untyped
+    def card_game_items: () -> ActionController::Parameters
   end
 end
