@@ -2,6 +2,8 @@
 
 Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, Vitest, Playwright.
 
+[LIVE DEMO](https://semabit-cardgame-657968733671.europe-west1.run.app/) (will be up a few days)
+
 * Ruby version
   * 3.4.5
 * System dependencies

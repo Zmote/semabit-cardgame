@@ -3,7 +3,10 @@
 
 # This Dockerfile is designed for production, not development. Use with Kamal or build'n'run by hand:
 # docker build -t semabit-cardgame .
-# docker run -d -p 80:80 -e RAILS_MASTER_KEY=<value from config/master.key> --name semabit-cardgame semabit-cardgame
+# docker run -d -p 3000:3000 -e RAILS_MASTER_KEY=<value from config/master.key> --name semabit-cardgame semabit-cardgame
+
+# For Google run deploy, build with:
+# docker buildx build -t semabit-cardgame --platform linux/amd64 .
 
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
@@ -85,6 +88,5 @@ USER 1000:1000
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-# Start server via Thruster by default, this can be overwritten at runtime
-EXPOSE 80
-CMD ["./bin/thrust", "./bin/rails", "server"]
+EXPOSE 3000
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
