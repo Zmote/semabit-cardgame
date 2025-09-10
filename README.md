@@ -85,7 +85,7 @@ More info on how to use the command:
 rails test --help
 ```
 
-### Frontend Tests
+### Tests, Linting, Reports
 
 Checkout pacakge.json, scripts sections for available run scripts, f.ex.:
 
@@ -104,6 +104,26 @@ yarn run test:unit --watch
 # to be able to see the tests in the browser, you have to use --ui with --watch, or
 # the server closes and no data can be shown
 yarn run test:e2e --watch --ui
+```
+
+To run a comprehensive check, i.e. linters, typecheckers and tests (frontend and backend), use:
+
+```shell
+yarn run check
+```
+#### Backend Automation Tests
+In contrast to the frontend automation tests with playwright, which automatically
+will run all test in the defined browsers, for the backend automation tests
+you need to provide the browser with an ENV variable, like so:
+```shell
+BROWSER=headless_firefox rake test:system
+```
+For backend automation, following modes are available:
+`headless_firefox,headless_chrome, firefox, chrome`
+
+Use package.json script to run all backend tests on all browsers with:
+```
+yarn run test:ruby:system
 ```
 
 ## Annotations

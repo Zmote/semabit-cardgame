@@ -53,6 +53,11 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "rubycritic", require: false
+  gem "dockerfile-rails", "~> 1.7", ">= 1.7.10"
+  gem "rbs", "~> 3.9", ">= 3.9.5", require: false
+  gem "rbs_rails", "~> 0.12.1", require: false
+  gem "steep", "~> 1.10", require: false
 end
 
 group :test do
@@ -62,9 +67,5 @@ group :test do
   gem "simplecov", require: false
 end
 
-gem "rubycritic", require: false
 gem "vite_rails", "~> 3.0"
 gem "faker", "~> 3.5", ">= 3.5.2", require: false
-gem "dockerfile-rails", "~> 1.7", ">= 1.7.10"
-gem "rbs", "~> 3.9", ">= 3.9.5", require: false
-gem "rbs_rails", "~> 0.12.1", require: false

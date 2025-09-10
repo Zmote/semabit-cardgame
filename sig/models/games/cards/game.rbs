@@ -17,7 +17,7 @@ module Games
       type game_config = {?player_count: ::Integer, ?card_count: ::Integer } | ActionController::Parameters
       def self.from: (game_config config) -> Game
 
-      def initialize: (?player_count: ::Integer, ?card_count: ::Integer) -> Game
+      def initialize: (?player_count: ::Integer, ?card_count: ::Integer) -> void
 
       def play: () -> GameResult
 

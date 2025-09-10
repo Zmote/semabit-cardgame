@@ -13,7 +13,7 @@ module Games
 
       attr_reader cards_remaining: Integer
 
-      def initialize: (String name, Integer cards_remaining) -> PlayerResult
+      def initialize: (String name, Integer cards_remaining) -> void
     end
   end
 end

@@ -5,9 +5,7 @@ module ApplicationCable
     rescue_from StandardError, with: :report_error
     identified_by :current_user
 
-    def connect
-
-    end
+    def connect;end
 
     private
 

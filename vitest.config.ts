@@ -6,7 +6,7 @@ const VITE_CONFIG_FILE = "vite.config.ts";
 export default defineConfig({
     test: {
         coverage: {
-          provider: 'v8',
+          provider: 'istanbul',
           reportsDirectory: 'reports/coverage'
         },
         globals: true,

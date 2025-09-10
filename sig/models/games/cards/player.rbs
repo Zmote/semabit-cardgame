@@ -7,7 +7,7 @@ module Games
 
       attr_reader name: String
 
-      def initialize: (String name) -> Player
+      def initialize: (String name) -> void
 
       def play: (Symbol die_color) -> void
 
