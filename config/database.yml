@@ -12,8 +12,15 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+<%
+  adapter = ENV.fetch("DB_ADAPTER") {"postgresql"}
+  db_prefix = adapter == "postgresql" ? "semabit" : "storage/semabit"
+  db_suffix = adapter == "postgresql" ? "" : ".sqlite3"
+  dbname = proc { |env| "#{db_prefix}_#{env}#{db_suffix}" }
+%>
+
 default: &default
-  adapter: postgresql
+  adapter: <%= ENV.fetch("DB_ADAPTER") {"postgresql"} %>
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -24,23 +31,19 @@ default: &default
   # the same name as the operating system user running Rails.
   username: <%= ENV.fetch("DB_USER") { "semabit" } %>
   password: <%= ENV.fetch("DB_PASS") { "semabit" } %>
+  # Connect on a TCP socket. Omitted by default since the client uses a
+  # domain socket that doesn't need configuration. Windows does not have
+  # domain sockets, so uncomment these lines.
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
+
+  # The TCP port the server listens on. Defaults to 5432.
+  # If your server runs on a different port number, change accordingly.
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
 
 
 development:
   <<: *default
-  database: semabit_development
-
-  # The password associated with the PostgreSQL role (username).
-  #password:
-
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
-  host: localhost
-
-  # The TCP port the server listens on. Defaults to 5432.
-  # If your server runs on a different port number, change accordingly.
-  port: 5432
+  database: <%= dbname.call("development") %>
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -56,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: semabit_test
+  database: <%= dbname.call("test") %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,16 +84,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: semabit_production
+    database: <%= dbname.call("production") %>
   cache:
     <<: *primary_production
-    database: semabit_production_cache
+    database: <%= dbname.call("production_cache") %>
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: semabit_production_queue
+    database: <%= dbname.call("production_queue") %>
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: semabit_production_cable
+    database: <%= dbname.call("production_cable") %>
     migrations_paths: db/cable_migrate

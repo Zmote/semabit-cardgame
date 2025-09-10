@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2", ">= 8.0.2.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+# Use sqlite for nodb runs or quick loocal runs
+gem "sqlite3", "~> 2.7", ">= 2.7.3"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -63,3 +65,4 @@ end
 gem "rubycritic", require: false
 gem "vite_rails", "~> 3.0"
 gem "faker", "~> 3.5", ">= 3.5.2", require: false
+gem "dockerfile-rails", "~> 1.7", ">= 1.7.10"
