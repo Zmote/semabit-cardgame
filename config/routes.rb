@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :v1 do
-      scope :games do
-        resources :card_game, only: :create
+      namespace :games do
+        resources :cards, only: :create
       end
     end
   end

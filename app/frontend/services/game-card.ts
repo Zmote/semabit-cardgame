@@ -1,7 +1,7 @@
 import {GameConfig} from "types/game-config";
 
 export const GameCardService = {
-    simulateGame: (gameConfig: GameConfig, token: string) => fetch('/api/v1/games/card_game', {
+    simulateGame: (gameConfig: GameConfig, token: string) => fetch('/api/v1/games/cards', {
         method: 'POST',
         headers: {
             'X-CSRF-Token': token,
