@@ -118,6 +118,3 @@ test/core/html/
 explainFiles.txt
 /reports/
 /webdrivers/
-
-/.yarn/
-.yarnrc
