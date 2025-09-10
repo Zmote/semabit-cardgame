@@ -5,14 +5,26 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
+    "prepare": "husky",
+
     "test": "vitest run",
     "test:lib": "vitest run --project lib",
     "test:unit": "vitest run --project unit",
     "test:integration": "vitest run --project integration",
     "test:e2e": "vitest run --project e2e",
+
     "coverage": "vitest run --coverage",
-    "prepare": "husky",
-    "lint": "eslint app/frontend"
+    "lint": "eslint app/frontend",
+
+    "docker:build": "docker buildx build -t semabit-cardgame:latest .",
+    "docker:tag": "docker tag semabit-cardgame:latest zaferdo/semabit-cardgame:latest",
+    "docker:push": "docker push zaferdo/semabit-cardgame:latest",
+    "docker": "yarn run docker:build && yarn run docker:tag && yarn run docker:push",
+
+    "docker:gc:build": "docker buildx build -t semabit-cardgame:gc-latest --platform linux/amd64 .",
+    "docker:gc:tag": "docker tag semabit-cardgame:gc-latest zaferdo/semabit-cardgame:gc-latest",
+    "docker:gc:push": "docker push zaferdo/semabit-cardgame:gc-latest",
+    "docker:gc": "yarn run docker:gc:build && yarn run docker:gc:tag && yarn run docker:gc:push"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
