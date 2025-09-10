@@ -1,0 +1,11 @@
+module Games
+  class CardsController < ApplicationController
+    @game_result: Cards::GameResult
+
+    def create: () -> untyped
+
+    private
+
+    def card_game_items: () -> untyped
+  end
+end

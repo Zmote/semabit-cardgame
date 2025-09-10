@@ -1,0 +1,19 @@
+module Games
+  module Cards
+    class GameResult
+      @rounds: Integer
+
+      @card_count: Integer
+
+      @players: Array[PlayerResult]
+
+      attr_reader rounds: Integer
+
+      attr_reader card_count: Integer
+
+      attr_reader players: Array[PlayerResult]
+
+      def initialize: (Integer rounds, Integer card_count, Array[PlayerResult] players) -> void
+    end
+  end
+end

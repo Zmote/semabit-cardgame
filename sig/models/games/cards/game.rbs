@@ -1,0 +1,35 @@
+module Games
+  module Cards
+    class Game
+      @card_count: Integer
+
+      @players: Array[Player]
+
+      attr_reader rounds: Integer
+
+      attr_accessor players: Array[Player]
+
+      MIN_CARDS: Integer
+      MAX_CARDS: Integer
+      MIN_PLAYERS: Integer
+      MAX_PLAYERS: Integer
+
+      type game_config = {?player_count: Integer, ?card_count: Integer }
+      def self.from: (game_config config) -> Game
+
+      def initialize: (?player_count: ::Integer, ?card_count: ::Integer) -> Game
+
+      def play: () -> GameResult
+
+      def reset: () -> void
+
+      private
+
+      def do_play: () -> GameResult
+
+      def players_by_rank: () -> Array[PlayerResult]
+
+      def distribute_cards: () -> void
+    end
+  end
+end

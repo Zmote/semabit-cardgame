@@ -17,7 +17,7 @@ module Games
       class << self
         def from(config)
           card_count, player_count = config.values_at(:card_count, :player_count)
-          new(player_count: player_count, card_count: card_count,)
+          new(player_count: player_count, card_count: card_count)
         end
       end
 

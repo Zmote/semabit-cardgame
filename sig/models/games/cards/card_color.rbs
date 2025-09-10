@@ -1,0 +1,29 @@
+module Games
+  module Cards
+    class CardColor
+      @colors: untyped
+
+      include Singleton
+
+      RED: Symbol
+
+      GREEN: Symbol
+
+      BLUE: Symbol
+
+      CYAN: Symbol
+
+      MAGENTA: Symbol
+
+      YELLOW: Symbol
+
+      def self.random: () -> Symbol
+
+      def random: () -> Symbol
+
+      private
+
+      def colors: () -> Array[Symbol]
+    end
+  end
+end

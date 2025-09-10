@@ -1,0 +1,5 @@
+class ApplicationController
+  private
+
+  def filter_params: (String key) -> untyped
+end

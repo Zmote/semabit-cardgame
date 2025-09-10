@@ -1,0 +1,7 @@
+module Games
+  module Cards
+    class Die
+      def self.cast: () -> Symbol
+    end
+  end
+end

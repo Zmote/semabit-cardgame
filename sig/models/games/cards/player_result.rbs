@@ -1,0 +1,19 @@
+module Games
+  module Cards
+    class PlayerResult
+      @id: String
+
+      @name: String
+
+      @cards_remaining: Integer
+
+      attr_reader id: String
+
+      attr_reader name: String
+
+      attr_reader cards_remaining: Integer
+
+      def initialize: (String name, Integer cards_remaining) -> PlayerResult
+    end
+  end
+end

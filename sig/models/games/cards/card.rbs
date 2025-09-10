@@ -1,0 +1,19 @@
+module Games
+  module Cards
+    class Card
+      @color: Symbol
+
+      @opened: bool
+
+      attr_reader color: Symbol
+
+      def initialize: () -> Card
+
+      def color?: (Symbol color) -> bool
+
+      def open?: () -> bool
+
+      def flip: () -> void
+    end
+  end
+end
