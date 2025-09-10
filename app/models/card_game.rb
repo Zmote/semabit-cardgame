@@ -22,7 +22,7 @@ class CardGame
   def initialize(player_count: 4, card_count: 5)
     @card_count = card_count.clamp(MIN_CARDS, MAX_CARDS)
     player_count = player_count.clamp(MIN_PLAYERS, MAX_PLAYERS)
-    @players = (0..player_count).map { Player.new(::Faker::Name.name) }
+    @players = (0..(player_count - 1)).map { Player.new(::Faker::Name.name) }
   end
 
   def play
