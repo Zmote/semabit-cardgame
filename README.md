@@ -10,7 +10,7 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
     * PostgreSQL 13+
     * Node lts/jod (v22.16.0)
 * Configuration
-    * RBS, Ruby "typescript"
+    * RBS, Ruby "typescript"ish
         * You can use rbs for type descriptions
             * For gem rbs's, use `rbs collection install`, this will read rbs_collection.yaml and download all 
               rbs - files for used gems
@@ -28,6 +28,9 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
       $ rbs prototype rb --out-dir=sig lib/
       ```
         * Note: The sig folder should mirror your app folder structure!
+        * Note: The parser for rbs currently only supports up to 3.3, therefore
+          a lot of rails rbs currently don't work properly, adjust as the rbs parsing
+          better supports 3.4 version of ruby
     * You can provide database user and password via env or .env - File:
       ```
       DB_USER=<user>
