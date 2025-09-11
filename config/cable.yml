@@ -8,10 +8,13 @@ development:
 test:
   adapter: test
 
+# Currently haven't configured solid queue, and for demo purposes not needed
 production:
-  adapter: solid_cable
-  connects_to:
-    database:
-      writing: cable
-  polling_interval: 0.1.seconds
-  message_retention: 1.day
+  adapter: async
+#production:
+#  adapter: solid_cable
+#  connects_to:
+#    database:
+#      writing: cable
+#  polling_interval: 0.1.seconds
+#  message_retention: 1.day
