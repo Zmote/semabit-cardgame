@@ -1,6 +1,11 @@
 @use 'sass:meta' as meta; // add this
 @use 'styles/components';
 
+@font-face {
+  font-family: 'RobotoSemabit';
+  src: url('fonts/Roboto-Regular.ttf') format('truetype');
+}
+
 $bootstrap-settings: (
         //navbar-light-brand-color: red
 );

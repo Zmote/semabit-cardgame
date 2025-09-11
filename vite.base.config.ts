@@ -13,6 +13,8 @@ export default defineConfig({
     // https://vite-ruby.netlify.app/config/index.html#watchadditionalpaths
     resolve: {
         alias: {
+            fonts: resolve(__dirname, 'app/frontend/fonts'),
+            channels: resolve(__dirname, 'app/frontend/channels'),
             components: resolve(__dirname, 'app/frontend/components'),
             layouts: resolve(__dirname, 'app/frontend/layouts'),
             pages: resolve(__dirname, 'app/frontend/pages'),

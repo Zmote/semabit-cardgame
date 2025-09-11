@@ -1,21 +1,36 @@
-import {Button, Col, Form, Row, Spinner} from "react-bootstrap";
+import {Alert, Button, Col, Form, Row, Spinner} from "react-bootstrap";
 import GameResult from "components/GameResult";
 import {GameResult as Result} from 'types/game-result'
-import {ChangeEvent, MouseEvent, useCallback, useMemo, useState} from "react";
+import {ChangeEvent, MouseEvent, useCallback, useEffect, useMemo, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFile, faPerson} from "@fortawesome/free-solid-svg-icons";
 import {GameConfig} from "types/game-config";
 import {GameCardService} from "services/game-card";
+import PlayerChannel from "channels/player";
+
+type ServerDate = {body: string};
 
 const HomeIndex = () => {
     const csrfToken = useMemo<string>(() => {
         return document.querySelector<HTMLMetaElement>("meta[name='csrf-token']")?.content ?? ''
     }, [])
+    const [serverQuote, setServerQuote] = useState<string>();
     const [loading, setLoading] = useState<boolean>(false);
     const [gameConfig, setGameConfig] = useState<GameConfig>(() => {
         return {card_count: 5, player_count: 4}
     });
     const [gameResult, setGameResult] = useState<Result>();
+
+    useEffect(() => {
+        PlayerChannel.subscriptions.create({channel: 'PlayerChannel', game: "Global"}, {
+            received(data: ServerDate) {
+                setServerQuote(data.body)
+            },
+        })
+        return () => {
+            PlayerChannel.disconnect();
+        }
+    }, [])
 
     const handleCardCountChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
@@ -54,6 +69,12 @@ const HomeIndex = () => {
                         <div className={"d-flex flex-column"}>
                             <h1>Hello to Semabit</h1>
                             <p className={"pb-0 mb-0"}>A Card Game by Zafer Dogan</p>
+                            <p><strong>Yoda Quotes</strong> <sup>via Websockets, every 1m a new one!</sup></p>
+                            { serverQuote ? (
+                                <Alert variant="light">
+                                    {serverQuote}
+                                </Alert>
+                            ) : (<Spinner animation={"grow"} size={"sm"} variant={"primary"}></Spinner>) }
                         </div>
                     </Col>
                 </Row>

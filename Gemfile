@@ -69,3 +69,4 @@ end
 
 gem "vite_rails", "~> 3.0"
 gem "faker", "~> 3.5", ">= 3.5.2", require: false
+gem "rufus-scheduler", "~> 3.2", require: false
