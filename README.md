@@ -140,7 +140,9 @@ annotate --models
 - [ ] Make Docker Container definition deployable / runnable
 - [ ] Auto-Deploy main to Cloud
 - [ ] Implement Multiplayer (with Websockets?)
+  - [ ] including AI players (implement Google AI for AI Player "round" messages to make rounds more entertaining)
 - [ ] Restructure models / controllers etc. for multiple game support
     - [ ] i.e. use Modules and remove prefixes where possible, like CardGame, could be Card::Game
 - [ ] Add i18n support
-- [ ] Switch to Sorbet from RBS?
+- [ ] ~~Switch to Sorbet from RBS?~~
+- [ ] Make Websocket connect/disconnect more robust, add timeouts

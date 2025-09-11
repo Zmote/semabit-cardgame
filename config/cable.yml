@@ -9,6 +9,8 @@ test:
   adapter: test
 
 # Currently haven't configured solid queue, and for demo purposes not needed
+# The issue with this setup is, that server messages can get lost when there is no
+# client to immediately deliver them, but that's not a concern for now
 production:
   adapter: async
 #production:

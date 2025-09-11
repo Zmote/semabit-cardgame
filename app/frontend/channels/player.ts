@@ -1,4 +1,4 @@
-import { createConsumer, createWebSocketURL } from "@rails/actioncable"
-import generateUUID from "pages/home/util/generate-uuid";
+import {createConsumer, createWebSocketURL} from "@rails/actioncable"
+import {multiPlayerUuid} from "./provider/uuid";
 
-export default createConsumer(createWebSocketURL("/cable?uuid=" + generateUUID()))
+export default createConsumer(createWebSocketURL("/cable?uuid=" + multiPlayerUuid))

@@ -11,6 +11,8 @@ const HomeLayout = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav defaultActiveKey="/home" activeKey={window.location.pathname} className="me-auto">
                             <Nav.Link as={RouterLink} to="/home" eventKey="/home">Home</Nav.Link>
+                            <Nav.Link as={RouterLink} to="/quotes" eventKey="/quotes">Quotes</Nav.Link>
+                            <Nav.Link as={RouterLink} to="/multi" eventKey="/multi">Multiplayer</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
