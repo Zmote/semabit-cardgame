@@ -3,7 +3,11 @@
     "baseUrl": "app/frontend",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "alwaysStrict": true,
     "allowJs": false,
     "skipLibCheck": true,
@@ -11,7 +15,13 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node","vitest/globals", "@testing-library/jest-dom", "@vitest/browser/matchers","@vitest/browser/providers/playwright"],
+    "types": [
+      "node",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "@vitest/browser/matchers",
+      "@vitest/browser/providers/playwright"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -20,7 +30,10 @@
     "jsx": "react-jsx",
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
-  "include": ["app/frontend", "vite.config.ts"],
+  "include": [
+    "app/frontend",
+    "vite.config.ts"
+  ]
 }

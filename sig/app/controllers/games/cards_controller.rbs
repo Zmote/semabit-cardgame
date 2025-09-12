@@ -1,0 +1,11 @@
+module Games
+  class CardsController < ApplicationController
+    @game_result: Cards::GameResult
+
+    def create: () -> void
+
+    private
+
+    def card_game_items: () -> { card_count: Integer, player_count: Integer }
+  end
+end

@@ -1,0 +1,12 @@
+production:
+  broadcast:
+    enabled: <%= ENV.fetch("QUOTES_BROADCAST_ENABLED", "0").to_i == 1 %>
+    global: <%= ENV.fetch("QUOTES_BROADCAST_GLOBAL", "1").to_i == 1 %>
+development:
+  broadcast:
+    enabled: true
+    global: true
+test:
+  broadcast:
+    enabled: false
+    global: false

@@ -1,3 +1,0 @@
-class QuotesChannel < ApplicationCable::Channel
-  def subscribed: () -> untyped
-end

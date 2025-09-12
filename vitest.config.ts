@@ -1,4 +1,5 @@
 import {defineConfig} from "vitest/config";
+import {fromBase} from "./vite.base.config";
 
 const VITE_BASE_CONFIG_FILE = "./vite.base.config.ts";
 const VITE_CONFIG_FILE = "vite.config.ts";
@@ -42,7 +43,7 @@ export default defineConfig({
                 extends: VITE_BASE_CONFIG_FILE,
                 test: {
                     name: "e2e",
-                    include: ["app/frontend/tests/e2e/**/*.{spec,}.{tsx,ts}"],
+                    include: [fromBase("tests/e2e/**/*.{spec,}.{tsx,ts}")],
                     browser: {
                         enabled: true,
                         // In Vitest 4, providers will be via factory, allowing for more fine-grained control

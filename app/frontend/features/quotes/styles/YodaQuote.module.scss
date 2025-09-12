@@ -1,0 +1,16 @@
+.yoda-quote {
+  &__image {
+    width: 100%;
+    max-width: 128px;
+    &--animate{
+      @keyframes yoda {
+        25% {transform: rotate(45deg)}
+        50% {transform: scale(0.8) rotate(-45deg)}
+        75% {transform: rotate(45deg)}
+      }
+      animation-name: yoda;
+      animation-timing-function: linear;
+      animation-duration: var(--animation-duration, 1s);
+    }
+  }
+}

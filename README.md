@@ -2,7 +2,7 @@
 
 Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, Vitest, Playwright.
 
-[LIVE DEMO](https://semabit-cardgame-657968733671.europe-west1.run.app/) (will be up a few days)
+[LIVE DEMO](https://semabit-cardgame-nfaoj2kndq-ew.a.run.app) (will be up a few days)
 
 * Ruby version
     * 3.4.5
@@ -20,7 +20,7 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
           better insight into your code (also better refactoring), but doesn't need special
           compilation (different in that regard to TypeScript) and isn't enforced
         * To auto generate starter rbs files for folder / file, note:
-      ```
+      ```shell
       # From a Ruby file
       $ rbs prototype rb lib/user.rb > sig/user.rbs
     
@@ -36,7 +36,7 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
           add .gem_rbs_collection to .gitignore, as the folder might be suggested for exclusion
           and you might accidentally say yes
     * You can provide database user and password via env or .env - File:
-      ```
+      ```shell
       DB_USER=<user>
       DB_PASS=<pass>
       ```
@@ -122,7 +122,7 @@ For backend automation, following modes are available:
 `headless_firefox,headless_chrome, firefox, chrome`
 
 Use package.json script to run all backend tests on all browsers with:
-```
+```shell
 yarn run test:ruby:system
 ```
 
@@ -130,7 +130,7 @@ yarn run test:ruby:system
 
 You can automatically update "schema" changes on corresponding model files via the annotate gem, use:
 
-```
+```shell
 annotate --models
 ```
 

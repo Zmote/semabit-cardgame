@@ -2,6 +2,14 @@ import {defineConfig} from 'vite'
 import React from '@vitejs/plugin-react';
 import TsConfigPaths from 'vite-tsconfig-paths';
 import {resolve} from "path";
+import ViteConfig from './config/vite.json';
+
+const sourceDir = ViteConfig.all.sourceCodeDir;
+const resolveBase = sourceDir.endsWith('/') ? sourceDir : sourceDir + '/'
+
+export function fromBase(path: string) {
+    return `${resolveBase}${path}`
+}
 
 export default defineConfig({
     plugins: [
@@ -13,19 +21,24 @@ export default defineConfig({
     // https://vite-ruby.netlify.app/config/index.html#watchadditionalpaths
     resolve: {
         alias: {
-            fonts: resolve(__dirname, 'app/frontend/fonts'),
-            channels: resolve(__dirname, 'app/frontend/channels'),
-            components: resolve(__dirname, 'app/frontend/components'),
-            layouts: resolve(__dirname, 'app/frontend/layouts'),
-            pages: resolve(__dirname, 'app/frontend/pages'),
-            images: resolve(__dirname, 'app/frontend/images'),
-            types: resolve(__dirname, 'app/frontend/types'),
-            services: resolve(__dirname, 'app/frontend/services'),
-            tests: resolve(__dirname, 'app/frontend/tests'),
-            styles: resolve(__dirname, 'app/frontend/styles'),
+            fonts: resolve(__dirname, fromBase("fonts")),
+            channels: resolve(__dirname, fromBase("channels")),
+            components: resolve(__dirname, fromBase("components")),
+            features: resolve(__dirname, fromBase("features")),
+            hooks: resolve(__dirname, fromBase("hooks")),
+            layouts: resolve(__dirname, fromBase("layouts")),
+            pages: resolve(__dirname, fromBase("pages")),
+            images: resolve(__dirname, fromBase("images")),
+            types: resolve(__dirname, fromBase("types")),
+            services: resolve(__dirname, fromBase("services")),
+            tests: resolve(__dirname, fromBase("tests")),
+            styles: resolve(__dirname, fromBase("styles")),
         },
     },
     css: {
+        modules: {
+            localsConvention: "dashesOnly"
+        },
         preprocessorOptions: {
             scss: {
                 // Bootstrap causes deprecation warnings with sass new "import" system, apparently this will be

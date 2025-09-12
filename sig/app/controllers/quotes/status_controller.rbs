@@ -1,0 +1,11 @@
+module Quotes
+  class StatusController < ApplicationController
+    def index: () -> void
+
+    private
+
+    def quotes_broadcast_enabled: -> bool
+
+    def quotes_broadcast_global: -> bool
+  end
+end

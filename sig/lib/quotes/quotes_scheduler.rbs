@@ -1,0 +1,14 @@
+module Quotes
+  module QuotesScheduler
+    type job_id = Integer
+
+    JOB_REGISTRY: Concurrent::Map[String, Integer]
+    SCHEDULER: Rufus::Scheduler
+
+    def self.register_job: (String key) {(Rufus::Scheduler scheduler) -> job_id} -> void
+
+    def self.shutdown: -> void
+
+    def self.unregister_job: (String key) -> void
+  end
+end

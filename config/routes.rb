@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       namespace :games do
         resources :cards, only: :create
       end
+      namespace :quotes do
+        get "status",  to: "status#index", as: :quotes_status
+      end
     end
   end
 

@@ -1,0 +1,15 @@
+class QuotesChannel < ApplicationCable::Channel
+  def subscribed: () -> untyped
+
+  def unsubscribed: -> untyped
+
+  private
+
+  def broadcast?: -> bool
+
+  def broadcast_key: -> String
+
+  def global_broadcast?: -> bool
+
+  def send_message: -> Proc
+end

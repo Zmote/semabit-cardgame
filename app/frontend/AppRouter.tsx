@@ -1,23 +1,31 @@
-import { Navigate, Route, Routes } from 'react-router';
-import AppLayout from "./layouts/AppLayout";
-import HomeIndex from "./pages/home/HomeIndex"
-import QuotesIndex from "./pages/quotes/QuotesIndex";
-import MultiPlayerIndex from "./pages/multiplayer/MultiPlayerIndex";
+import {Suspense, lazy} from 'react';
+import {Route, Routes, Navigate, useLocation} from 'react-router';
+import LoadingPage from "./components/LoadingPage";
+
+const AppLayout = lazy(() => import('layouts/AppLayout'));
+const HomePage = lazy(() => import('pages/HomePage'));
+const CardPage = lazy(() => import('pages/games/CardPage'));
+const MultiPlayerPage = lazy(() => import('pages/games/MultiPlayerPage'));
+const QuotesPage = lazy(() => import('pages/QuotesPage'));
 
 const AppRouter = () => {
+    const location = useLocation();
     return (
-        <Routes>
-            <Route path="/home" element={<AppLayout />}>
-                <Route index element={<HomeIndex />} />
-            </Route>
-            <Route path="/quotes" element={<AppLayout />}>
-                <Route index element={<QuotesIndex />} />
-            </Route>
-            <Route path="/multi" element={<AppLayout />}>
-                <Route index element={<MultiPlayerIndex />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/home" replace />}></Route>
-        </Routes>
+        <Suspense fallback={<LoadingPage/>}>
+            <Routes location={location} key={location.key}>
+                <Route element={<AppLayout/>}>
+                    <Route index element={<Navigate to={'/home'} replace/>}></Route>
+                    <Route path={'home'} element={<HomePage/>}/>
+                    <Route path={'games'}>
+                        <Route index path={"card"} element={<CardPage/>}></Route>
+                        <Route index path={"multi"} element={<MultiPlayerPage/>}></Route>
+                    </Route>
+                    <Route path={'quotes'} element={<QuotesPage/>}/>
+                    <Route path="*" element={<Navigate to={'/home'} replace/>}></Route>
+                </Route>
+                <Route path={"/loading"} element={<LoadingPage/>}></Route>
+            </Routes>
+        </Suspense>
     );
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { createRoot } from 'react-dom/client';
-import '../App.scss'
+
+import 'styles/application.scss'
+import "types/modules"
 import "fonts/Roboto-Regular.ttf"
 
 import App from '../App';

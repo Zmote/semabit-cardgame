@@ -1,0 +1,5 @@
+module Rufus
+  class Scheduler
+
+  end
+end

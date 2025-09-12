@@ -1,0 +1,29 @@
+@use 'framework';
+@use 'typography';
+
+* {
+  box-sizing: border-box !important;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overscroll-behavior: none;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.footer{
+  height: 40px;
+  &__logo {
+    width: 40px;
+    aspect-ratio: auto;
+  }
+}
