@@ -4,6 +4,8 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
 
 [LIVE DEMO](https://semabit-cardgame-nfaoj2kndq-ew.a.run.app) (will be up a few days)
 
+## Setup
+
 * Ruby version
     * 3.4.5
 * System dependencies
@@ -12,7 +14,7 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
 * Configuration
     * RBS, Ruby "typescript"ish
         * You can use rbs for type descriptions
-            * For gem rbs's, use `rbs collection install`, this will read rbs_collection.yaml and download all 
+            * For gem rbs's, use `rbs collection install`, this will read rbs_collection.yaml and download all
               rbs - files for used gems
         * You can place your custom type signatures under sig/*
             * Follow the folder structure of your files in your app
@@ -53,6 +55,14 @@ Simple Demo Card game (assessment) with Ruby on Rails, Vite, React, TypeScript, 
 * How to run the test suite
     * See section [Testing](#Testing)
 * Services (job queues, cache servers, search engines, etc.)
+    * Currently, the Quotes page relies on in-memory broadcast messages via ActionCable. Per default, broadcasting is
+      is disabled. To enable, you have two options you can pass via ENV:
+  ```shell
+  # Enable broadcasting for Quotes
+  QUOTES_BROADCAST_ENABLED=<1 or 0>
+  # The broadcasting can be configured to be one for all clients, or a per client version
+  QUOTES_BROADCAST_GLOBAL=<1 or 0>
+  ```
 * Deployment instructions
     * Google Cloud Runner reads this projects Dockerfile, auto-deployment on changes on main-Branch
 
@@ -111,17 +121,22 @@ To run a comprehensive check, i.e. linters, typecheckers and tests (frontend and
 ```shell
 yarn run check
 ```
+
 #### Backend Automation Tests
+
 In contrast to the frontend automation tests with playwright, which automatically
 will run all test in the defined browsers, for the backend automation tests
 you need to provide the browser with an ENV variable, like so:
+
 ```shell
 BROWSER=headless_firefox rake test:system
 ```
+
 For backend automation, following modes are available:
 `headless_firefox,headless_chrome, firefox, chrome`
 
 Use package.json script to run all backend tests on all browsers with:
+
 ```shell
 yarn run test:ruby:system
 ```
@@ -139,8 +154,9 @@ annotate --models
 - [ ] Add React Redux for State Management
 - [ ] Make Docker Container definition deployable / runnable
 - [ ] Auto-Deploy main to Cloud
+  - [ ] Add Cloud PostgreSQL for backend on GCP (for Queues, Backend Jobs and Persistence)
 - [ ] Implement Multiplayer (with Websockets?)
-  - [ ] including AI players (implement Google AI for AI Player "round" messages to make rounds more entertaining)
+    - [ ] including AI players (implement Google AI for AI Player "round" messages to make rounds more entertaining)
 - [ ] Restructure models / controllers etc. for multiple game support
     - [ ] i.e. use Modules and remove prefixes where possible, like CardGame, could be Card::Game
 - [ ] Add i18n support
