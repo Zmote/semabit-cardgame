@@ -1,5 +1,5 @@
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
-import {Outlet, Link as RouterLink} from 'react-router-dom';
+import {Link as RouterLink} from 'react-router-dom';
 import {useLocation} from "react-router";
 import Footer from "components/Footer";
 import {PaddedContainerContext} from "../context/PaddedContainerContext";
