@@ -3,8 +3,9 @@ import {Outlet, Link as RouterLink} from 'react-router-dom';
 import {useLocation} from "react-router";
 import Footer from "components/Footer";
 import {PaddedContainerContext} from "../context/PaddedContainerContext";
-import {useMemo, useState} from "react";
+import {Suspense, useMemo, useState} from "react";
 import AnimatedOutlet from "../components/AnimatedOutlet";
+import LoadingPage from "../components/LoadingPage";
 
 const AppLayout = () => {
     const [padding, setPadding] = useState(true);
@@ -33,7 +34,9 @@ const AppLayout = () => {
             </Navbar>
             <PaddedContainerContext value={paddingContextProps}>
                 <div style={{top: 56}} className={`position-absolute bottom-0 start-0 end-0 ${padding ? 'mt-2' : ''}`}>
-                    <AnimatedOutlet/>
+                    <Suspense fallback={<LoadingPage />}>
+                        <AnimatedOutlet/>
+                    </Suspense>
                 </div>
             </PaddedContainerContext>
             <Footer/>

@@ -11,7 +11,7 @@ const QuotesPage = lazy(() => import('pages/QuotesPage'));
 const AppRouter = () => {
     const location = useLocation();
     return (
-        <Suspense fallback={<LoadingPage/>}>
+        <Suspense fallback={<LoadingPage withBackground />}>
             <Routes location={location} key={location.key}>
                 <Route element={<AppLayout/>}>
                     <Route index element={<Navigate to={'/home'} replace/>}></Route>
