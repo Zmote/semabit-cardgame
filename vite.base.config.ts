@@ -41,11 +41,12 @@ export default defineConfig({
         },
         preprocessorOptions: {
             scss: {
+                quiteDeps: true,
                 // Bootstrap causes deprecation warnings with sass new "import" system, apparently this will be
                 // solved in Bootstrap v6, but for now, disable, because annoying
-                quietDeps: true,
+                silenceDeprecations: ['legacy-js-api', 'global-builtin', 'import', 'color-functions'],
                 api: 'modern-compiler'
-            }
+            },
         }
     }
 })

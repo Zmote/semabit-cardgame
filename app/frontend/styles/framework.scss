@@ -1,7 +1,18 @@
-@use 'sass:meta' as meta; // add this
+@use 'sass:map' as map;
 
-$bootstrap-settings: (
-  //navbar-light-brand-color: red
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$custom-colors: (
+        "indigo": $indigo,
+        "purple": $purple,
+        "pink": $pink,
+        "teal": $teal,
+        "footer": $gray-800
 );
 
-@include meta.load-css('bootstrap', $with: $bootstrap-settings);
+
+$theme-colors: map.merge($theme-colors, $custom-colors);
+
+@import "bootstrap";
