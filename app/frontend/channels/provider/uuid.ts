@@ -1,3 +1,3 @@
-import generateUUID from "../util/generate-uuid";
+import generateUUID from '../util/generate-uuid'
 
-export const multiPlayerUuid = generateUUID();
+export const multiPlayerUuid = generateUUID()

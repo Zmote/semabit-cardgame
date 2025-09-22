@@ -1,0 +1,27 @@
+module Quotes
+  class YodaChannel < ApplicationCable::Channel
+    def subscribed: () -> untyped
+
+    def unsubscribed: -> untyped
+
+    def update_interval: -> untyped
+
+    private
+
+    def broadcast?: -> bool
+
+    def broadcast_key: -> ::String
+
+    def global_interval: (?interval: Integer | nil) -> Integer
+
+    def global_broadcast?: -> bool
+
+    def interval_valid?: (Integer | nil interval) -> bool
+
+    def send_message: -> Proc
+
+    def start_broadcast: (?key: ::String, ?interval: ::Integer) -> untyped
+
+    def stop_broadcast: (?force: bool) -> untyped
+  end
+end

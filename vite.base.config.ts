@@ -21,18 +21,7 @@ export default defineConfig({
     // https://vite-ruby.netlify.app/config/index.html#watchadditionalpaths
     resolve: {
         alias: {
-            fonts: resolve(__dirname, fromBase("fonts")),
-            channels: resolve(__dirname, fromBase("channels")),
-            components: resolve(__dirname, fromBase("components")),
-            features: resolve(__dirname, fromBase("features")),
-            hooks: resolve(__dirname, fromBase("hooks")),
-            layouts: resolve(__dirname, fromBase("layouts")),
-            pages: resolve(__dirname, fromBase("pages")),
-            images: resolve(__dirname, fromBase("images")),
-            types: resolve(__dirname, fromBase("types")),
-            services: resolve(__dirname, fromBase("services")),
-            tests: resolve(__dirname, fromBase("tests")),
-            styles: resolve(__dirname, fromBase("styles")),
+            '@': resolve(__dirname, './app/frontend'),
         },
     },
     css: {

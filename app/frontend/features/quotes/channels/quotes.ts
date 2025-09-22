@@ -1,5 +1,7 @@
-import { createConsumer, createWebSocketURL } from "@rails/actioncable"
-import generateUUID from "channels/util/generate-uuid";
+import { createConsumer, createWebSocketURL } from '@rails/actioncable'
 
-export const quotesUuid = generateUUID();
-export const QuotesChannel = createConsumer(createWebSocketURL("/cable?uuid=" + quotesUuid))
+import generateUUID from 'channels/util/generate-uuid'
+
+export const channelName = 'Quotes::YodaChannel'
+export const quotesUuid = generateUUID()
+export const QuotesChannel = createConsumer(createWebSocketURL('/cable?uuid=' + quotesUuid))

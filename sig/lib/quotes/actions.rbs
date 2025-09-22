@@ -1,0 +1,6 @@
+module Quotes
+  module Actions
+    NEW_QUOTE: ::String
+    INTERVAL: ::String
+  end
+end

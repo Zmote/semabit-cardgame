@@ -1,0 +1,5 @@
+module Quotes
+  CHANNEL_PREFIX: ::String
+  PERMITTED_INTERVALS: ::Array[Integer]
+  DEFAULT_INTERVAL: Integer
+end

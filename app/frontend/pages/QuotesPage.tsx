@@ -1,13 +1,16 @@
-import {Col, Row} from "react-bootstrap";
-import YodaQuotes from "features/quotes/containers/YodaQuotes";
+import { Col, Container, Row } from 'react-bootstrap'
+
+import YodaQuotes from '@/features/quotes/containers/YodaQuotes'
 
 const QuotesPage = () => {
-    return (
-        <Row>
-            <Col>
-             <YodaQuotes/>
-            </Col>
-        </Row>
-    )
+  return (
+    <Container fluid={true}>
+      <Row>
+        <Col>
+          <YodaQuotes />
+        </Col>
+      </Row>
+    </Container>
+  )
 }
-export default QuotesPage;
+export default QuotesPage

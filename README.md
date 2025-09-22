@@ -152,8 +152,8 @@ annotate --models
 ## TODOs
 
 - [ ] Add React Redux for State Management
-- [ ] Make Docker Container definition deployable / runnable
-- [ ] Auto-Deploy main to Cloud
+- [x] ~~Make Docker Container definition deployable / runnable~~
+- [x] ~~Auto-Deploy main to Cloud~~
   - [ ] Add Cloud PostgreSQL for backend on GCP (for Queues, Backend Jobs and Persistence)
 - [ ] Implement Multiplayer (with Websockets?)
     - [ ] including AI players (implement Google AI for AI Player "round" messages to make rounds more entertaining)
@@ -162,3 +162,5 @@ annotate --models
 - [ ] Add i18n support
 - [ ] ~~Switch to Sorbet from RBS?~~
 - [ ] Make Websocket connect/disconnect more robust, add timeouts
+- [ ] Refactor components and optimize loading
+- [ ] Add authentication

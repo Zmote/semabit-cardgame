@@ -1,5 +1,5 @@
-require "quotes/quotes_scheduler"
+require "quotes/scheduler"
 
 at_exit do
-  Quotes::QuotesScheduler.shutdown
+  Quotes::Scheduler.shutdown
 end

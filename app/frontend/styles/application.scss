@@ -2,10 +2,11 @@
 @use 'typography';
 
 * {
+  --sb-header-height: 56px;
+  --sb-footer-height: 40px;
   box-sizing: border-box !important;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  overscroll-behavior: none;
 }
 
 #root{
@@ -21,7 +22,7 @@
 }
 
 .footer{
-  height: 40px;
+  height: var(--sb-footer-height);
   &__logo {
     width: 40px;
     aspect-ratio: auto;

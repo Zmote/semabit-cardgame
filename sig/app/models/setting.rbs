@@ -1,0 +1,23 @@
+class Setting < ApplicationRecord
+  SCOPE_SETTING: ::Symbol
+
+  SCOPES: ::Array[Symbol]
+
+  SCOPES_ENUM: ::Hash[Symbol, String]
+
+  CATEGORY_QUOTES: ::Symbol
+
+  CATEGORIES: ::Array[Symbol]
+
+  CATEGORIES_ENUM: Hash[Symbol, String]
+
+  def value: () -> HashWithIndifferentAccess[untyped, untyped]
+
+  def self.register: (scope: ::Symbol, category: ::Symbol, value: Hash[untyped, untyped]) -> void
+
+  def self.quotes_value: (key: ::Symbol) -> untyped
+
+  private
+
+  def self.for: (category: ::Symbol, ?scope: ::Symbol) -> untyped
+end

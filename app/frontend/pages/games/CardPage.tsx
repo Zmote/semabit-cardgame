@@ -1,14 +1,17 @@
-import CardGame from "features/games/card/containers/CardGame";
-import {Col, Row} from "react-bootstrap";
+import { Col, Container, Row } from 'react-bootstrap'
+
+import CardGame from '@/features/games/card/containers/CardGame'
 
 const CardPage = () => {
-    return (
-        <Row>
-            <Col>
-                <CardGame/>
-            </Col>
-        </Row>
-    )
+  return (
+    <Container fluid={true}>
+      <Row>
+        <Col>
+          <CardGame />
+        </Col>
+      </Row>
+    </Container>
+  )
 }
 
-export default CardPage;
+export default CardPage

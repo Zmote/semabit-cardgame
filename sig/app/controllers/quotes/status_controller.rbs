@@ -7,5 +7,7 @@ module Quotes
     def quotes_broadcast_enabled: -> bool
 
     def quotes_broadcast_global: -> bool
+
+    def quotes_broadcast_interval: -> Integer
   end
 end

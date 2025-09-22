@@ -10,5 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_21_114818) do
+  create_table "settings", force: :cascade do |t|
+    t.string "scope", null: false
+    t.string "category", null: false
+    t.json "value", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scope", "category"], name: "index_settings_on_scope_and_category", unique: true
+  end
 end

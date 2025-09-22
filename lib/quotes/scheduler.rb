@@ -3,7 +3,7 @@
 require "rufus-scheduler"
 require "concurrent-ruby"
 module Quotes
-  module QuotesScheduler
+  module Scheduler
     JOB_REGISTRY = Concurrent::Map.new
     SCHEDULER = Rufus::Scheduler.new
 

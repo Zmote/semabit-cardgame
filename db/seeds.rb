@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Setting.register(scope: Setting::SCOPE_SETTING,
+                 category: Setting::CATEGORY_QUOTES,
+                 value: { interval: 10 })

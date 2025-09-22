@@ -1,11 +1,13 @@
+<% quotes_env = -> (key, fallback) { ENV.fetch("QUOTES_BROADCAST_#{key.upcase}", fallback).to_i  == 1 } %>
+
 production:
   broadcast:
-    enabled: <%= ENV.fetch("QUOTES_BROADCAST_ENABLED", "0").to_i == 1 %>
-    global: <%= ENV.fetch("QUOTES_BROADCAST_GLOBAL", "1").to_i == 1 %>
+    enabled: <%= quotes_env.("enabled", 0) %>
+    global: <%= quotes_env.("global", 1) %>
 development:
   broadcast:
-    enabled: true
-    global: true
+    enabled: <%= quotes_env.("enabled", 1) %>
+    global: <%= quotes_env.("global", 1) %>
 test:
   broadcast:
     enabled: false
