@@ -4,7 +4,7 @@ module Quotes
 
     def unsubscribed: -> untyped
 
-    def update_interval: -> untyped
+    def update_interval: (Hash[untyped, untyped] data) -> untyped
 
     private
 
