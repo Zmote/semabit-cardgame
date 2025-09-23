@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Games
+module Chat
   class GlobalChatChannel < ApplicationCable::Channel
     CHANNEL_PREFIX = "global_chat"
     MESSAGE_INTERVAL = 0.1

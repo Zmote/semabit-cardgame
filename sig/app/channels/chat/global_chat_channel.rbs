@@ -1,4 +1,4 @@
-module Games
+module Chat
   class GlobalChatChannel < ApplicationCable::Channel
     CHANNEL_PREFIX: ::String
 
