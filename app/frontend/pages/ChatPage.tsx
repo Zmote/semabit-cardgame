@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
-import MultiPlayerCardGame from '@/features/games/multiplayer/containers/MultiPlayerCardGame'
+import GlobalChat from '@/features/chat/containers/GlobalChat'
 import { usePaddedContainer } from '@/hooks/usePaddedContainer'
 
-const MultiPlayerPage = () => {
+const ChatPage = () => {
   const { setPadding } = usePaddedContainer()
 
   useEffect(() => {
@@ -17,11 +17,11 @@ const MultiPlayerPage = () => {
     <Container fluid={true}>
       <Row>
         <Col>
-          <MultiPlayerCardGame />
+          <GlobalChat />
         </Col>
       </Row>
     </Container>
   )
 }
 
-export default MultiPlayerPage
+export default ChatPage

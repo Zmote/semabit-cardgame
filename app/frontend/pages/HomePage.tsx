@@ -30,7 +30,7 @@ const HomePage = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Badge bg="danger">Demo</Badge>
-                <Button onClick={() => { notifications?.addNotification('Hi', 'Hello', 'danger') }} className="float-end" size="sm">Say Hi!</Button>
+                <Button onClick={() => { notifications?.addNotification('Hi', 'Hello', 'light') }} className="float-end" size="sm">Say Hi!</Button>
               </ListGroup.Item>
             </ListGroup>
           </Card>

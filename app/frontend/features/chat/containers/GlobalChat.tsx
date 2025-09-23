@@ -9,11 +9,11 @@ import { Key } from '@/utils/keyboard'
 import { toTimeString } from '@/utils/time-utils'
 
 import { channelName, GlobalChatChannel } from '../channels/global-chat'
-import { ChatMessage, GlobalChatResponse, MESSAGE_ACTION, WAIT_ACTION } from '../types/multiplayer'
+import { ChatMessage, GlobalChatResponse, MESSAGE_ACTION, WAIT_ACTION } from '../types/chat'
 
 const trimmedId = clientUuid.substring(0, 5)
 
-const MultiPlayerCardGame = () => {
+const GlobalChat = () => {
   const notification = useNotifications()
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
   const subscriptionRef = useRef<Subscription | null>(null)
@@ -79,35 +79,8 @@ const MultiPlayerCardGame = () => {
       className="position-absolute bottom-0 top-0 start-0 end-0 d-flex flex-column"
       fluid={true}
     >
-      <Row className="bg-primary">
-        <Col>
-          <h2 className="text-white ms-1 mb-1">Multiplayer Games</h2>
-        </Col>
-      </Row>
       <Row className="flex-grow-1 border-top">
-        <Col
-          sm={4}
-          md={3}
-          className="d-flex flex-column border-secondary-subtle border-end border-1 overflow-auto"
-        >
-          <Row className="bg-secondary-subtle align-items-center">
-            <Col>
-              <h3 className="p-0 m-0">Games</h3>
-            </Col>
-          </Row>
-          <Row
-            className="bg-light bg-opacity-50 flex-grow-1 position-relative border-top border-secondary-subtle border-1"
-          >
-            <Col className="overflow-auto position-absolute top-0 start-0 end-0 bottom-0">
-            </Col>
-          </Row>
-          <Row>
-            <Col className="p-0">
-              <Button variant="primary" className="rounded-0 w-100">Create Game</Button>
-            </Col>
-          </Row>
-        </Col>
-        <Col sm={8} md={9} className="d-flex flex-column overflow-auto">
+        <Col className="d-flex flex-column overflow-auto">
           <Row className="bg-secondary-subtle align-items-center">
             <Col>
               <h3 className="p-0 m-0">Chat</h3>
@@ -162,4 +135,4 @@ const MultiPlayerCardGame = () => {
   )
 }
 
-export default MultiPlayerCardGame
+export default GlobalChat

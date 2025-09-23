@@ -155,6 +155,7 @@ annotate --models
 - [x] ~~Make Docker Container definition deployable / runnable~~
 - [x] ~~Auto-Deploy main to Cloud~~
   - [ ] Add Cloud PostgreSQL for backend on GCP (for Queues, Backend Jobs and Persistence)
+- [x] ~~Implement Global Chat (with Websockets)~~
 - [ ] Implement Multiplayer (with Websockets?)
     - [ ] including AI players (implement Google AI for AI Player "round" messages to make rounds more entertaining)
 - [ ] Restructure models / controllers etc. for multiple game support
@@ -164,3 +165,4 @@ annotate --models
 - [ ] Make Websocket connect/disconnect more robust, add timeouts
 - [ ] Refactor components and optimize loading
 - [ ] Add authentication
+- [ ] Dedicated PostgreSQL Server on GCP

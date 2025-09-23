@@ -33,6 +33,7 @@ const Navigation = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={RouterLink} to="quotes" eventKey="/quotes">Quotes</Nav.Link>
+            <Nav.Link as={RouterLink} to="chat" eventKey="/chat">Chat</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
