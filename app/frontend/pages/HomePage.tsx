@@ -1,8 +1,10 @@
-import { Badge, Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
+import { Badge, Button, Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
 
-import fengSpired from 'images/fengspired_zmotey.jpg'
+import { useNotifications } from '@/hooks/useNotifications'
+import fengSpired from '@/images/fengspired_zmotey.jpg'
 
 const HomePage = () => {
+  const notifications = useNotifications()
   return (
     <Container fluid={true}>
       <Row className="justify-content-center">
@@ -26,7 +28,10 @@ const HomePage = () => {
                 {' '}
                 September 2025
               </ListGroup.Item>
-              <ListGroup.Item><Badge bg="danger">Demo</Badge></ListGroup.Item>
+              <ListGroup.Item>
+                <Badge bg="danger">Demo</Badge>
+                <Button onClick={() => { notifications?.addNotification('Hi', 'Hello', 'danger') }} className="float-end" size="sm">Say Hi!</Button>
+              </ListGroup.Item>
             </ListGroup>
           </Card>
         </Col>

@@ -30,11 +30,7 @@ module Quotes
         # could be improved with a counter, that stops the global broadcast
         # when no subscribers exist
         if global_broadcast?
-          ActionCable.server.broadcast(key, { action: Actions::INTERVAL,
-                                              body: {
-                                                interval: broadcast_interval
-                                              }
-          })
+          ActionCable.server.broadcast(key, interval_message(broadcast_interval))
         end
       end
     end
@@ -60,14 +56,26 @@ module Quotes
 
       Scheduler.register_job(key) do |scheduler|
         scheduler.every "#{interval}s" do
-          ActionCable.server.broadcast(key, { action: Actions::NEW_QUOTE,
-                                              body: {
-                                                id: Time.now.to_i,
-                                                quote: Faker::Quote.yoda
-                                              }
-          })
+          ActionCable.server.broadcast(key, quote_message)
         end
       end
+    end
+
+    def quote_message
+      { action: Actions::NEW_QUOTE,
+        body: {
+          id: Time.now.to_i,
+          quote: Faker::Quote.yoda
+        }
+      }
+    end
+
+    def interval_message(interval)
+      { action: Actions::INTERVAL,
+        body: {
+          interval: interval
+        }
+      }
     end
 
     def broadcast_key

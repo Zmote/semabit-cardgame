@@ -8,9 +8,12 @@ const Footer = () => {
         <Col className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
             <img className="footer__logo shadow" alt="PC image" src={pc} />
-            <span className="ms-2 border-start border-1 border-pink ps-2">- Created by: Zafer Dogan</span>
+            <span className="ms-2 border-start border-1 border-pink ps-2 flex-shrink-0">- Created by: Zafer Dogan</span>
           </div>
-          <span className="">© Copyright 2025 - All rights reserved</span>
+          <div>
+            <span title="Copyright 2025 - All rights reserved">©</span>
+            <span className="d-none d-sm-inline-block ms-1">Copyright 2025 - All rights reserved</span>
+          </div>
         </Col>
       </Row>
     </footer>

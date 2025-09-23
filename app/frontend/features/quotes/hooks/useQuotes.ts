@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Mixin, Subscription } from '@rails/actioncable'
 
-import { channelName, QuotesChannel, quotesUuid } from '@/features/quotes/channels/quotes'
+import { clientUuid } from '@/channels/provider/uuid'
+import { channelName, QuotesChannel } from '@/features/quotes/channels/quotes'
 
 import { QuotesService } from '../services/quotes'
 import {
@@ -33,7 +34,7 @@ export function useQuotes({ quotesMax = 10 }: QuotesChannelProps = {}) {
       setGlobalStreaming(data.global)
       setQuotesInterval(data.interval)
     })
-    subscriptionRef.current = QuotesChannel.subscriptions.create({ channel: channelName, uuid: quotesUuid }, {
+    subscriptionRef.current = QuotesChannel.subscriptions.create({ channel: channelName, uuid: clientUuid }, {
       received(data: ServerQuoteResponse) {
         switch (data.action) {
           case NewQuoteAction:

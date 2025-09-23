@@ -1,0 +1,29 @@
+module Games
+  class GlobalChatChannel < ApplicationCable::Channel
+    CHANNEL_PREFIX: ::String
+
+    MAX_MESSAGES: Integer
+    MESSAGE_INTERVAL: ::Float
+
+    MESSAGE_ACTION: ::String
+    WAIT_ACTION: ::String
+
+    @consumer_thread: Thread
+    @messages_queue: Queue
+
+    def receive: (Hash[untyped, untyped] data) -> untyped
+
+    def subscribed: (Hash[untyped, untyped] data) -> untyped
+
+    def unsubscribed: -> untyped
+
+    private
+
+    type chat_message_data = {id: ::String, message: ::String, timestamp: Integer }
+    type chat_message_type = {action: ::String, body: { id: Integer, message: ::String, timestamp: Integer}}
+    def chat_message: (chat_message_data data) -> chat_message_type
+
+    type wait_message_type = {action: ::String, body: { message: ::String}}
+    def wait_message: -> wait_message_type
+  end
+end

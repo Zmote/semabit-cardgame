@@ -37,6 +37,7 @@
   },
   "include": [
     "app/frontend",
-    "vite.config.ts"
+    "vite.config.ts",
+    "eslint.config.ts"
   ]
 }

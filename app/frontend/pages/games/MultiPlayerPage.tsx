@@ -1,16 +1,16 @@
-import { use, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
-import { PaddedContainerContext } from '@/AppContexts'
-import MultiPlayerCardGame from '@/features/games/card/containers/MultiPlayerCardGame'
+import MultiPlayerCardGame from '@/features/games/multiplayer/containers/MultiPlayerCardGame'
+import { usePaddedContainer } from '@/hooks/usePaddedContainer'
 
 const MultiPlayerPage = () => {
-  const paddedContainerContext = use(PaddedContainerContext)
+  const { setPadding } = usePaddedContainer()
 
   useEffect(() => {
-    paddedContainerContext?.setPadding(false)
+    setPadding(false)
     return () => {
-      paddedContainerContext?.setPadding(true)
+      setPadding(true)
     }
   }, [])
   return (

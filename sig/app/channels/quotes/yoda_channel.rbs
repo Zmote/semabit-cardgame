@@ -1,5 +1,6 @@
 module Quotes
   class YodaChannel < ApplicationCable::Channel
+
     def subscribed: () -> untyped
 
     def unsubscribed: -> untyped
@@ -15,6 +16,12 @@ module Quotes
     def global_interval: (?interval: Integer | nil) -> Integer
 
     def global_broadcast?: -> bool
+
+    type quote_message_type = {action: ::String, body: { id: Integer, quote: ::String}}
+    def quote_message: -> quote_message_type
+
+    type interval_message_type = {action: ::String, body: { interval: Integer}}
+    def interval_message: (Integer interval) -> interval_message_type
 
     def interval_valid?: (Integer | nil interval) -> bool
 

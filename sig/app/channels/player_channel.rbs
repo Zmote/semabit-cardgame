@@ -1,3 +1,0 @@
-class PlayerChannel < ApplicationCable::Channel
-  def subscribed: () -> untyped
-end
