@@ -2,7 +2,7 @@ module Games
   class CardsController < ApplicationController
     @game_result: Cards::GameResult
 
-    def create: () -> void
+    def simulate: () -> void
 
     private
 

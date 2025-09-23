@@ -1,7 +1,7 @@
 
 module Games
   class CardsController < ApplicationController
-    def create
+    def simulate
       game_config = card_game_items
       card_game = Games::Cards::Game.from(game_config)
       @game_result = card_game.play
