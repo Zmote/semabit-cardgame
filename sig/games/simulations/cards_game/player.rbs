@@ -12,11 +12,11 @@ module Games
 
         def play: (Symbol die_color) -> void
 
-        def take: (Card card) -> void
+        def take: (*Card card) -> void
 
         def reset: () -> void
 
-        def cards_remaining: () -> Integer
+        def open_cards: () -> Array[Card]
       end
     end
   end

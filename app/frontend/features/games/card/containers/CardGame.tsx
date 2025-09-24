@@ -14,6 +14,7 @@ const CardGame = () => {
     simulateGameHandler,
     handlePlayerCountChange,
     handleCardCountChange,
+    handleModeChange,
   } = useCardGame()
   return (
     <div className="position-absolute bottom-0 top-0 start-0 end-0">
@@ -35,6 +36,7 @@ const CardGame = () => {
                 gameConfig={gameConfig}
                 onCardCountChange={handleCardCountChange}
                 onPlayerCountChange={handlePlayerCountChange}
+                onModeChange={handleModeChange}
                 onSimulate={simulateGameHandler}
               >
               </GameForm>

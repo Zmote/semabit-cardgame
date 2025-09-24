@@ -1,6 +1,8 @@
 import { faCrown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import CardDropdown from '@/features/games/card/components/CardDropdown'
+
 import styles from './GameResult.module.scss'
 import { GameResult as Result, Player } from '../types/card'
 
@@ -33,13 +35,14 @@ const GameResult = (props: GameResultProps) => {
               {' '}
               {player.cards_remaining > 0
                 ? (
-                    <span className="float-end">
+                    <div className="float-end">
                       {player.cards_remaining}
                       {' '}
                       von
                       {' '}
                       {props.result?.card_count}
-                    </span>
+                      <CardDropdown player={player}></CardDropdown>
+                    </div>
                   )
                 : null}
             </li>

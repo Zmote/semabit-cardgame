@@ -11,7 +11,7 @@ module Games
       private
 
       def card_game_items
-        params.permit(:card_count, :player_count)
+        params.permit(:card_count, :player_count, :mode)
       end
     end
   end

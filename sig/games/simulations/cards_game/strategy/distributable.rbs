@@ -1,0 +1,15 @@
+module Games
+  module Simulations
+    module CardsGame
+      module Strategy
+        interface _Distributable
+          def distribute_cards: (Array[Player] players, Integer card_count) -> void
+        end
+
+        module Distributable
+          include _Distributable
+        end
+      end
+    end
+  end
+end

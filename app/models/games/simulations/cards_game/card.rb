@@ -5,8 +5,8 @@ module Games
     module CardsGame
       class Card
         attr_reader :color
-        def initialize
-          @color = CardColor.random
+        def initialize(color = CardColor.random)
+          @color = color
           @opened = false
         end
 

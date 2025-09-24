@@ -2,27 +2,33 @@ module Games
   module Simulations
     module CardsGame
       class CardColor
-        @colors: untyped
+        @colors: Array[Symbol] | nil
 
         include Singleton
 
         RED: Symbol
-
         GREEN: Symbol
-
         BLUE: Symbol
-
         CYAN: Symbol
-
         MAGENTA: Symbol
-
         YELLOW: Symbol
+        BLACK: Symbol
+        SKYBLUE: Symbol
+        TURQUOISE: Symbol
+        VIOLET: Symbol
+        WHITE: Symbol
 
         def self.random: () -> Symbol
 
+        def self.random_set: (Integer count) -> Array[Symbol]
+
         def random: () -> Symbol
 
+        def random_set: (Integer count) -> Array[Symbol]
+
         private
+
+        def color_range: -> Array[Symbol]
 
         def colors: () -> Array[Symbol]
       end

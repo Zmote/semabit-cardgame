@@ -20,16 +20,18 @@ module Games
           end
         end
 
-        def take(card)
-          @cards << card
+        def take(*cards)
+          cards.each do |card|
+            @cards << card
+          end
         end
 
         def reset
           @cards = []
         end
 
-        def cards_remaining
-          @cards.reject { |card| card.open? }.length
+        def open_cards
+          @cards.reject { |card| card.open? }
         end
       end
     end

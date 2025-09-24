@@ -1,0 +1,13 @@
+module Games
+  module Simulations
+    module CardsGame
+      module Strategy
+        class DistributionFactory
+          type strategy_mode = :unique | :random
+
+          def self.from:(strategy_mode mode) -> _Distributable
+        end
+      end
+    end
+  end
+end

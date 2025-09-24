@@ -3,6 +3,7 @@ import eslintReact from '@eslint-react/eslint-plugin'
 import stylistic from '@stylistic/eslint-plugin'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import esLintPluginImport from 'eslint-plugin-import'
+import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
 import { configs, parser } from 'typescript-eslint'
 
@@ -18,7 +19,9 @@ export default defineConfig(
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 'latest',
-      parser: parser,
+      parser: {
+        ...parser,
+      },
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -33,6 +36,9 @@ export default defineConfig(
           alwaysTryTypes: true,
         },
       },
+    },
+    plugins: {
+      'unused-imports': unusedImports,
     },
     rules: {
       // Disabled as it isn't fine-grained enough, for example useEffect with no dependencies
@@ -74,6 +80,17 @@ export default defineConfig(
             order: 'asc',
             caseInsensitive: true,
           },
+        },
+      ],
+      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
         },
       ],
     },

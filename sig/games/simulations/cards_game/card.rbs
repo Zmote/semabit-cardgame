@@ -8,7 +8,7 @@ module Games
 
         attr_reader color: Symbol
 
-        def initialize: () -> void
+        def initialize: (?Symbol color) -> void
 
         def color?: (Symbol color) -> bool
 

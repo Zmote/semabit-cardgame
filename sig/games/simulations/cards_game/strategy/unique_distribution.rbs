@@ -1,0 +1,11 @@
+module Games
+  module Simulations
+    module CardsGame
+      module Strategy
+        class UniqueDistribution
+          include Distributable
+        end
+      end
+    end
+  end
+end

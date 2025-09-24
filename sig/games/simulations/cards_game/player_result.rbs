@@ -7,14 +7,14 @@ module Games
         @name: String
 
         @cards_remaining: Integer
+        @open_cards: Array[Card]
 
         attr_reader id: String
-
         attr_reader name: String
-
         attr_reader cards_remaining: Integer
+        attr_reader open_cards: Array[Card]
 
-        def initialize: (String name, Integer cards_remaining) -> void
+        def initialize: (Player player) -> void
       end
     end
   end

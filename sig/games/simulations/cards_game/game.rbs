@@ -6,6 +6,8 @@ module Games
 
         @players: Array[Player]
 
+        @strategy: Strategy::_Distributable
+
         attr_reader rounds: Integer
 
         attr_accessor players: Array[Player]
@@ -15,16 +17,16 @@ module Games
         MIN_PLAYERS: Integer
         MAX_PLAYERS: Integer
 
-        type game_config = {?player_count: ::Integer, ?card_count: ::Integer } | ActionController::Parameters
+        type game_config = {?player_count: ::Integer, ?card_count: ::Integer, ?mode: Symbol } | ActionController::Parameters
         def self.from: (game_config config) -> Game
-
-        def initialize: (?player_count: ::Integer, ?card_count: ::Integer) -> void
 
         def play: () -> GameResult
 
         def reset: () -> void
 
         private
+
+        def initialize: (?player_count: ::Integer, ?card_count: ::Integer, ?mode: ::Symbol) -> void
 
         def do_play: () -> GameResult
 

@@ -17,15 +17,11 @@ module Games
 
         class << self
           def from(config)
-            card_count, player_count = config.values_at(:card_count, :player_count)
-            new(player_count: player_count, card_count: card_count)
+            card_count, player_count, mode = config.values_at(:card_count, :player_count, :mode)
+            new(player_count: player_count.clamp(MIN_PLAYERS, MAX_PLAYERS),
+                card_count: card_count.clamp(MIN_CARDS, MAX_CARDS),
+                mode: mode)
           end
-        end
-
-        def initialize(player_count: 4, card_count: 5)
-          @card_count = card_count.clamp(MIN_CARDS, MAX_CARDS)
-          player_count = player_count.clamp(MIN_PLAYERS, MAX_PLAYERS)
-          @players = (0..(player_count - 1)).map { Player.new(::Faker::Name.name) }
         end
 
         def play
@@ -39,6 +35,13 @@ module Games
 
         private
 
+        def initialize(player_count: 4, card_count: 5, mode: :random)
+          @strategy = Strategy::DistributionFactory.from(mode.to_sym)
+          @card_count = card_count.clamp(MIN_CARDS, MAX_CARDS)
+          player_count = player_count.clamp(MIN_PLAYERS, MAX_PLAYERS)
+          @players = (0..(player_count - 1)).map { Player.new(::Faker::Name.name) }
+        end
+
         def do_play
           rounds = 0
           finished = false
@@ -46,7 +49,7 @@ module Games
             rounds += 1
             @players.each do |player|
               player.play(Die.cast)
-              unless player.cards_remaining > 0
+              unless player.open_cards.length > 0
                 finished = true
                 break
               end
@@ -56,16 +59,12 @@ module Games
         end
 
         def players_by_rank
-          @players.sort_by { |player| player.cards_remaining }
-                  .map { |player| PlayerResult.new(player.name, player.cards_remaining) }
+          @players.sort_by { |player| player.open_cards.length }
+                  .map { |player| PlayerResult.new(player) }
         end
 
         def distribute_cards
-          @card_count.times do
-            @players.each do |player|
-              player.take(Card.new)
-            end
-          end
+          @strategy.distribute_cards(@players, @card_count)
         end
       end
     end
