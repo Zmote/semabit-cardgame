@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   scope :api do
     scope :v1 do
       namespace :games do
-        resource :cards, only: [] do
-          post "simulate", action: :simulate
+        resources :card_games
+        resources :games
+        namespace :simulations do
+          resources :card_games, only: [ :create ]
         end
       end
       namespace :quotes do

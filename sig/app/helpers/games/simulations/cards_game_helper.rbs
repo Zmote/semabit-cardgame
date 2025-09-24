@@ -1,0 +1,6 @@
+module Games
+  module Simulations
+    module CardsGameHelper
+    end
+  end
+end

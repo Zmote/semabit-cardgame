@@ -1,0 +1,34 @@
+class Games::CardGamesController < ApplicationController
+  @games_card_games: untyped
+
+  @games_card_game: untyped
+
+  # GET /games/card_games or /games/card_games.json
+  def index: () -> untyped
+
+  # GET /games/card_games/1 or /games/card_games/1.json
+  def show: () -> nil
+
+  # GET /games/card_games/new
+  def new: () -> untyped
+
+  # GET /games/card_games/1/edit
+  def edit: () -> nil
+
+  # POST /games/card_games or /games/card_games.json
+  def create: () -> untyped
+
+  # PATCH/PUT /games/card_games/1 or /games/card_games/1.json
+  def update: () -> untyped
+
+  # DELETE /games/card_games/1 or /games/card_games/1.json
+  def destroy: () -> untyped
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_games_card_game: () -> untyped
+
+  # Only allow a list of trusted parameters through.
+  def games_card_game_params: () -> untyped
+end

@@ -1,4 +1,0 @@
-module Games
-  module CardsHelper
-  end
-end

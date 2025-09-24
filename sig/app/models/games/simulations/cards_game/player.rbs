@@ -1,0 +1,23 @@
+module Games
+  module Simulations
+    module CardsGame
+      class Player
+        @name: String
+
+        @cards: Array[Card]
+
+        attr_reader name: String
+
+        def initialize: (String name) -> void
+
+        def play: (Symbol die_color) -> void
+
+        def take: (Card card) -> void
+
+        def reset: () -> void
+
+        def cards_remaining: () -> Integer
+      end
+    end
+  end
+end

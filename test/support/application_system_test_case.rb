@@ -1,6 +1,7 @@
 require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  Capybara.disable_animation = true
   shared_opts = { screen_size: [ 1400, 1400 ] }
   browser = ENV.fetch("BROWSER", "headless_chrome")
   case browser

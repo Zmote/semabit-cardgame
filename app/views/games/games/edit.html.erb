@@ -1,0 +1,12 @@
+<% content_for :title, "Editing game" %>
+
+<h1>Editing game</h1>
+
+<%= render "form", games_game: @games_game %>
+
+<br>
+
+<div>
+  <%= link_to "Show this game", @games_game %> |
+  <%= link_to "Back to games", games_games_path %>
+</div>
